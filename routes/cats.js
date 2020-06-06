@@ -8,6 +8,7 @@ const {
 
 router.get('/login', login)
 router.post('/signup', signup)
+
 router.get('/', authMiddleware, catList)
 router.post('/liked', liked)
 router.post('/unliked', unliked)
