@@ -1,18 +1,20 @@
 # Tinder Cat
 
 # Services
-##CATS
-POST/GET :/login **
-POST: /signup
+## Cats:
+POST/GET: /login **
 GET: /list **
+- POST: /signup
 POST: /like
 POST: /unlike
-POST: /interest
-DELETE: /interest
-PUT: /preferences
+- POST: /interest
+- DELETE: /interest
+- PUT: /preferences
 PUT: /bio *
 
-## Interets
-POST: /
-GET: /interests
+## Interests
+POST: / #ingresar 1
+GET: /  #obtenerlos todos
 
+POST: http://localhost:5001/interest
+GET: http://localhost:5001/interest

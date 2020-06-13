@@ -6,12 +6,12 @@ const login = async (email, password) => {
   try {
     const query = { email, password }
     const cat = await CatModel.findOne(query)
-    if (cat) {
+    if (cat){
       const payload = {
-        catId: cat.Id, // _id
+        catId: cat.id, // _id
         name: cat.name
       }
-      const token = jwt.sign(payload, SECRET, { expiresIn: '1h' }) // genera el token secret, encripta payload
+      const token = jwt.sign(payload, SECRET, { expiresIn: '1h' })
       return { status: 1, token: token }
     } else {
       return { status: 2 }
@@ -19,6 +19,7 @@ const login = async (email, password) => {
   } catch (err) {
     return { status: 2 }
   }
+
 }
 
 module.exports = login

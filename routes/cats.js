@@ -3,11 +3,12 @@ const authMiddleware = require('../middleware/verify-auth')
 const {
   login, signup, catList,
   liked, unliked, addInterest,
-  removeInterest, updatePreferences
+  removeInterest, updatePreferences, autologin
 } = require('./../controllers/catsController')
 
 router.get('/login', login)
 router.post('/signup', signup)
+router.post('/autologin', authMiddleware, autologin)
 
 router.get('/', authMiddleware, catList)
 router.post('/liked', liked)

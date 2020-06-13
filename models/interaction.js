@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const InterationSchema = new Schema({
+const InterationsSchema = new Schema({
   cat_id: String,
   cats_likes: [String],
   cats_unlikes: [String],
@@ -10,4 +10,4 @@ const InterationSchema = new Schema({
 
 const Interation = mongoose.model('interactions', InterationsSchema)
 
-module.export = Interation
+module.exports = Interation

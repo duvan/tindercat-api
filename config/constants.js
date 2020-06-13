@@ -1,1 +1,1 @@
-exports.SECRET = 'tindercattoken123' // ultrasecreto
+exports.SECRET = 'tindercattoken123' // ultra secreto

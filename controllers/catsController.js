@@ -6,6 +6,7 @@ const updatePreferencesService = require('../services/cats/update-preferences')
 const addLikedService = require('../services/cats/add-liked')
 const addUnlikedService = require('../services/cats/add-unliked')
 const getCatsService = require('../services/cats/get-cats')
+const autologinService = require('../services/cats/autologin')
 
 const login = async (req, res) => {
   const { email, password } = req.query
@@ -16,6 +17,12 @@ const login = async (req, res) => {
 const signup = async (req, res) => {
   const cat = req.body
   const response = await signupService(cat)
+  res.json(response)
+}
+
+const autologin = async(req, res) => {
+  const { catId } = req.query
+  const response = await autologinService(catId)
   res.json(response)
 }
 
@@ -32,7 +39,7 @@ const liked = async (req, res) => {
 }
 
 const unliked = async (req, res) => {
-  const { catId, catIdUnliked } = req.body
+  const { catId, catIdUnliked } = req.body
   const response = await addUnlikedService(catId, catIdUnliked)
   res.json(response)
 }
@@ -58,6 +65,7 @@ const updatePreferences = async (req, res) => {
 module.exports = {
   login,
   signup,
+  autologin,
   catList,
   liked,
   unliked,

@@ -1,4 +1,3 @@
-/*
 const InterestModel = require('../../models/interest')
 
 const getInterests = async () => {
@@ -7,4 +6,3 @@ const getInterests = async () => {
 }
 
 module.exports = getInterests
-*/
