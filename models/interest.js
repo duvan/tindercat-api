@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const InterestsSchema = new Schema({
-  interest: String
+    Interest: String,
 })
 
-const Interest = mongoose.model('interests', InterestsSchema)
+const Interest = mongoose.model('Interests', InterestsSchema)
 
 module.exports = Interest

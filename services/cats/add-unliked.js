@@ -1,14 +1,15 @@
 const CatModel = require('../../models/cat')
 
-const addUnliked = async (catId, catIdUnliked) => {
-  try {
-    const cat = await CatModel.findById(catId)
-    cat.cats_unlikes.push(catIdUnliked)
-    cat.save()
-    return { status: 1, cat }
-  }catch(err){
-    return { status: 2 }
-  }
+const addUnliked = async (catIdOwn, catIdUnliked) => {
+    try{
+        const cat = await CatModel.findById(catIdOwn)
+        cat.cats_unlikes.push(catIdUnliked)
+        cat.save()
+        return { status: 1, cat }
+    }catch(err){
+        return {status: 2, msg: 'cat unliked not added to interactions'}
+    }
+
 }
 
 module.exports = addUnliked

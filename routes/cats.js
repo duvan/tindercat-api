@@ -1,20 +1,18 @@
-var router = require('express').Router()
-const authMiddleware = require('../middleware/verify-auth')
-const {
-  login, signup, catList,
-  liked, unliked, addInterest,
-  removeInterest, updatePreferences, autologin
+const router = require('express').Router()
+const { login, signup, catList, liked, unliked, 
+    addInterest, removeInterest, updatePreferences, autologin 
 } = require('./../controllers/catsController')
+const authMiddleware = require('../middleware/verify-auth')
 
-router.get('/login', login)
-router.post('/signup', signup)
+router.get('/Login', login)
+router.post('/Signup', signup)
 router.post('/autologin', authMiddleware, autologin)
 
 router.get('/', authMiddleware, catList)
-router.post('/liked', liked)
-router.post('/unliked', unliked)
-router.post('/interest', addInterest)
-router.delete('/interest', removeInterest)
-router.put('/preferences', updatePreferences)
+router.post('/Liked', authMiddleware, liked)
+router.post('/Unliked', authMiddleware, unliked)
+router.post('/Interest', addInterest)
+router.delete('/Interest', removeInterest)
+router.put('/Preferences', authMiddleware, updatePreferences)
 
 module.exports = router

@@ -1,8 +1,13 @@
-const InterestModel = require('../../models/interest')
+const InterestModel = require('../../models/Interest')
 
 const getInterests = async () => {
-  const interests = await InterestModel.find()
-  return { interests: interests } // return { interests }
+    try{
+       const interests = await InterestModel.find()
+       return { interests: interests }
+    } catch(err){
+        return { status: 2, err }
+    }
+
 }
 
 module.exports = getInterests
